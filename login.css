@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap');
+
 :root{--bg:#4230ac;--ink:oklch(91.25% 0.00871 188.775);--muted:#c5cac8;--primary:#b9f23d;--paper:#141412;--border:#d5d9d1;--olive:#8aa42f}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
