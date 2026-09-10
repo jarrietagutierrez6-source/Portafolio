@@ -1,112 +1,781 @@
+/* =====================================================================
+   PORTAFOLIO - HOJA DE ESTILOS
+   Organizada en secciones para que sea facil de leer y aprender.
+   Indice:
+     1. Variables de color y ajustes globales
+     2. Estilos base (body, enlaces, titulos)
+     3. Botones y enlaces interactivos
+     4. Cabecera y menu de navegacion
+     5. Seccion Hero (portada)
+     6. Sobre mi
+     7. Habilidades (tarjetas)
+     8. Proyectos (lista + filtros)
+     9. Mi proceso
+     10. Contacto (formulario)
+     11. Pie de pagina
+     12. Responsive (moviles) y accesibilidad
+   ===================================================================== */
 
-:root{--bg:#4230ac;--ink:oklch(91.25% 0.00871 188.775);--muted:#c5cac8;--primary:#b9f23d;--paper:#141412;--border:#d5d9d1;--olive:#8aa42f}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;line-height:1.5}
-a{color:inherit;text-decoration:none}
-.site-header,.page-section,footer{width:min(1180px,calc(100% - 48px));margin:auto}
-.site-nav,footer{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:26px 0}
-.brand{font:700 15px 'Space Mono',monospace;letter-spacing:-.06em}
-.brand span:first-child{color:var(--olive);font-size:23px;margin-right:2px}
-.brand span:last-child{color:var(--muted);font-weight:400}
-.nav-links,.hero-actions,.filters,.tags,.footer-links{display:flex;align-items:center;gap:20px}
-.nav-links{color:var(--muted);font-size:14px}
-.nav-links a:hover,.footer-links a:hover{color:var(--ink)}
-.nav-cta{color:var(--ink);font-weight:700}
-.menu-button{display:none;border:0;background:transparent;font-size:22px}
-.hero{min-height:610px;display:flex;align-items:center;justify-content:space-between;gap:60px;padding:78px 0 100px}
-.hero-copy{max-width:625px}
-.eyebrow,.section-label,.project-type,.skill-number{font:11px 'Space Mono',monospace;letter-spacing:.08em;text-transform:uppercase}
-.eyebrow{display:flex;align-items:center;gap:9px;color:var(--muted)}
-.status-dot{width:7px;height:7px;background:#8db62c;border-radius:50%}
-.hero h1,h2{font-weight:400;letter-spacing:-.07em;line-height:.98}
-.hero h1{font-size:clamp(4.4rem,10vw,8.3rem);margin:24px 0}
-.hero h1 em,h2 span,.contact h2 em{color:var(--olive);font-style:normal}
-.hero-text{max-width:475px;color:var(--muted);font-size:17px;line-height:1.65}
-.button{display:inline-flex;align-items:center;gap:11px;border:0;border-radius:999px;padding:15px 21px;cursor:pointer;font:700 15px 'DM Sans',sans-serif}
-.button-primary{background:var(--primary);color:var(--ink);box-shadow:0 7px 0 #dce9bf}
-.button-primary:hover{transform:translateY(-2px)}
-.text-link{border-bottom:1px solid var(--ink);padding-bottom:4px;font-size:14px;font-weight:700}
-.hero-art{position:relative;width:400px;height:390px;flex:none}
-.orbit{position:absolute;border:1px solid #cbd5c1;border-radius:50%}
-.orbit-one{width:370px;height:180px;top:90px;left:5px;transform:rotate(-22deg)}
-.orbit-two{width:350px;height:230px;top:65px;left:18px;transform:rotate(53deg)}
-.code-card{position:absolute;top:89px;left:39px;width:315px;padding:25px 20px 29px;border:1px solid #cbd3c4;background:var(--paper);box-shadow:13px 13px 0 var(--primary);font:12px/2.2 'Space Mono',monospace}
-.code-card span{display:block}
-.code-card b{color:#161615;font-weight:400}
-.code-card i{color:#ad6d44;font-style:normal}
-.line-number{position:absolute!important;left:-28px;color:#a1aaa0}
-.indent{padding-left:22px}
-.hero-sticker{position:absolute;right:-6px;bottom:37px;padding:12px;background:var(--ink);color:var(--bg);font:10px/1.25 'Space Mono',monospace;transform:rotate(7deg)}
-.hero-sticker:first-letter{color:var(--primary)}
-.split-section,.skills,.projects,.journey,.contact{padding:105px 0;border-top:1px solid var(--border)}
-.split-section,.journey{display:grid;grid-template-columns:27% 1fr;gap:20px}
-.section-label{color:var(--muted)}
-h2{font-size:clamp(3rem,6vw,5.7rem);margin:24px 0}
-.about-content>p,.journey p,.contact-grid>div>p{max-width:580px;color:var(--muted);font-size:18px;line-height:1.65}
-.about-meta{display:flex;gap:65px;margin-top:38px}
-.about-meta div{display:flex;align-items:center;gap:11px}
-.about-meta strong{font:400 31px 'Space Mono',monospace}
-.about-meta span{color:var(--muted);font-size:12px;line-height:1.25}
-.skills-header,.projects-header{display:flex;justify-content:space-between;align-items:end;gap:30px;margin:30px 0 50px}
-.skills-header h2,.projects-header h2{margin:0}
-.skills-header p{max-width:270px;color:var(--muted)}
-.skill-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.skill-card{min-height:260px;padding:25px;background:var(--paper);border:1px solid var(--border)}
-.skill-icon{display:block;margin:39px 0 22px;color:var(--olive);font:700 24px 'Space Mono',monospace}
-.skill-card h3{margin:0 0 10px;font-size:20px}
-.skill-card p,.project-card p{color:var(--muted);font-size:14px;line-height:1.6}
-.filters button{border:1px solid var(--border);background:transparent;border-radius:999px;padding:9px 15px;cursor:pointer;color:var(--muted)}
-.filters button.active,.filters button:hover{background:var(--ink);color:var(--bg)}
-.project-list{border-top:1px solid var(--border)}
-.project-card{display:grid;grid-template-columns:12% 1fr auto;gap:20px;padding:29px 0;border-bottom:1px solid var(--border)}
-.project-index{color:var(--olive);font:13px 'Space Mono',monospace}
-.project-type{color:var(--muted)}
-.project-card h3{margin:7px 0 6px;font-size:25px;font-weight:500}
-.project-card p{margin:0 0 15px}
-.project-arrow{font-size:24px}
-.tags{flex-wrap:wrap;gap:7px}
-.tags span{border:1px solid var(--border);padding:5px 9px;font:10px 'Space Mono',monospace}
-.journey{width:100%;padding-inline:max(24px,calc((100% - 1180px)/2));background:var(--ink);color:var(--bg)}
-.journey .section-label,.journey p{color:#abb4ac}
-.journey-mark{color:var(--primary);font-size:45px}
-.journey .text-link{border-color:var(--primary);color:var(--primary)}
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:100px;margin-top:30px}
-.contact h2{margin-top:0}
-.contact-email{display:inline-block;margin-top:17px;border-bottom:1px solid var(--ink);font:13px 'Space Mono',monospace}
-.contact form{display:flex;flex-direction:column;gap:21px}
-.contact label{display:flex;flex-direction:column;gap:7px;font:11px 'Space Mono',monospace;text-transform:uppercase}
-.contact input,.contact textarea{resize:vertical;border:0;border-bottom:1px solid var(--border);background:transparent;padding:10px 0;color:var(--ink);font:15px 'DM Sans',sans-serif;outline:0}
-.contact input:focus,.contact textarea:focus{border-color:var(--ink)}
-.error-message{min-height:15px;color:#985443;font:11px 'DM Sans',sans-serif;text-transform:none}
-.form-note{color:#0c0c0b;font-size:12px}
-.contact form .button{align-self:flex-start}
-footer{color:var(--muted);font-size:12px;border-top:1px solid var(--border)}
-footer p{margin:0}
-.footer-links{gap:20px}
-@media(max-width:720px){
-    .site-header,.page-section,footer{width:min(100% - 32px,560px)}
-    .site-nav{padding:19px 0}
-    .menu-button{display:block}
-    .nav-links{display:none;position:absolute;z-index:2;top:67px;left:16px;right:16px;padding:18px;flex-direction:column;align-items:stretch;gap:18px;background:var(--paper);border:1px solid var(--border)}
-    .nav-links.is-open{display:flex}
-    .hero{min-height:auto;flex-direction:column;align-items:stretch;padding:68px 0 86px;gap:46px}
-    .hero h1{font-size:clamp(3.8rem,18vw,6rem)}
-    .hero-actions{align-items:flex-start;flex-direction:column;gap:22px}
-    .hero-art{width:100%;height:310px;transform:scale(.8);transform-origin:left top;margin-bottom:-55px}
-    .split-section,.journey{display:block}
-    .split-section .section-label,.journey-mark{margin-bottom:28px}
-    .split-section,.skills,.projects,.journey,.contact{padding:72px 0}
-    .skills-header,.projects-header{display:block;margin-bottom:34px}
-    .skills-header p{margin-top:20px}
-    .skill-grid,.contact-grid{grid-template-columns:1fr}
-    .skill-card{min-height:auto}
-    .filters{margin-top:28px}
-    .project-card h3{font-size:20px}
-    .contact-grid{gap:55px}
-    .journey{width:100%;padding-inline:16px}
-    .journey>div{width:min(100%,560px);margin:auto}
-    footer{flex-wrap:wrap}footer p{order:3;width:100%}}
-@media(prefers-reduced-motion:reduce){
-    html{scroll-behavior:auto}
-    .button-primary:hover{transform:none}}
+
+/* 1. VARIABLES ---------------------------------------------------------
+   Guardamos los colores una sola vez. Si quieres cambiar el color
+   principal, solo cambias --primary aqui y se actualiza en toda la web. */
+:root {
+  --bg: #0a0a0a;
+  /* fondo general */
+  --ink: #615f5f;
+ 
+  --muted: #e1ece7;
+ 
+  --primary: #0d5a6d;
+ 
+  --olive: #ebe8e5;
+  
+  --paper: #471e22;
+  /* fondo de tarjetas */
+  --border: #d5d9d1;
+  /* color de bordes */
+
+  /* Una transicion suave que reutilizamos en toda la pagina */
+  --transicion: 0.25s ease;
+}
+
+/* box-sizing hace que el padding no agrande los elementos: mas facil de calcular */
+* {
+  box-sizing: border-box;
+}
+
+/* Al hacer clic en un enlace del menu, se desliza suavemente hasta la seccion */
+html {
+  scroll-behavior: smooth;
+}
+
+
+/* 2. ESTILOS BASE ------------------------------------------------------ */
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'DM Sans', system-ui, sans-serif;
+  line-height: 1.6;
+}
+
+/* Los enlaces heredan el color del texto y cambian suave al pasar el mouse */
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transicion);
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+/* La palabra resaltada dentro de los titulos (con <em> o <span>) va en verde */
+h1 em,
+h2 span,
+.contact h2 em {
+  color: var(--olive);
+  font-style: normal;
+}
+
+/* Ancho maximo centrado: el contenido no se pega a los bordes de la pantalla */
+.site-header,
+.page-section,
+footer {
+  width: min(1100px, calc(100% - 48px));
+  margin-inline: auto;
+}
+
+/* Separacion vertical entre secciones */
+.page-section {
+  padding: 80px 0;
+}
+
+
+/* 3. BOTONES Y ENLACES INTERACTIVOS -----------------------------------
+   Aqui esta la parte "interactiva": transform y transition hacen que
+   los botones se muevan cuando pasas el mouse. */
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: 0;
+  border-radius: 999px;
+  /* bordes totalmente redondeados (pastilla) */
+  padding: 14px 22px;
+  font: 700 15px 'DM Sans', sans-serif;
+  cursor: pointer;
+  transition: transform var(--transicion), box-shadow var(--transicion);
+}
+
+.button-primary {
+  background: var(--primary);
+  color: var(--ink);
+  box-shadow: 0 6px 0 #dce9bf;
+  /* sombra plana que simula grosor */
+}
+
+/* :hover = cuando el mouse esta encima. El boton "sube" 3px */
+.button-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 9px 0 #dce9bf;
+}
+
+/* :active = en el momento del clic. El boton "baja" y parece presionado */
+.button-primary:active {
+  transform: translateY(2px);
+  box-shadow: 0 3px 0 #3d3d3b;
+}
+
+/* Enlace de texto con una linea inferior que aparece al pasar el mouse */
+.text-link {
+  border-bottom: 2px solid var(--olive);
+  padding-bottom: 2px;
+  transition: opacity var(--transicion);
+}
+
+.text-link:hover {
+  opacity: 0.6;
+}
+
+
+/* 4. CABECERA Y NAVEGACION --------------------------------------------- */
+.site-nav,
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 24px 0;
+}
+
+.brand {
+  font: 700 15px 'Space Mono', monospace;
+  letter-spacing: -0.04em;
+}
+
+.brand span:first-child {
+  color: var(--olive);
+  font-size: 22px;
+}
+
+.brand span:last-child {
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.nav-links,
+.hero-actions,
+.filters,
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.nav-links {
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.nav-links a:hover,
+.footer-links a:hover {
+  color: var(--ink);
+}
+
+.nav-cta {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+/* El boton de menu solo se ve en moviles (mas abajo lo activamos) */
+.menu-button {
+  display: none;
+  border: 0;
+  background: transparent;
+  font: 700 13px 'Space Mono', monospace;
+  cursor: pointer;
+}
+
+
+/* 5. HERO (PORTADA) ---------------------------------------------------- */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+  padding: 70px 0 90px;
+}
+
+.hero-copy {
+  max-width: 600px;
+}
+
+.eyebrow,
+.section-label,
+.project-type,
+.skill-number {
+  font: 11px 'Space Mono', monospace;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+/* El puntito verde de "disponible" que late suavemente */
+.status-dot {
+  width: 8px;
+  height: 8px;
+  background: #a4a79f;
+  border-radius: 50%;
+  animation: latido 1.6s ease-in-out infinite;
+}
+
+/* @keyframes define una animacion: aqui el punto crece y se encoge */
+@keyframes latido {
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.4);
+    opacity: 0.6;
+  }
+}
+
+.hero h1 {
+  font-size: clamp(3.5rem, 9vw, 7rem);
+  /* tamano fluido segun la pantalla */
+  margin: 20px 0;
+  font-weight: 700;
+}
+
+.hero-text {
+  max-width: 460px;
+  color: var(--muted);
+  font-size: 17px;
+}
+
+.hero-actions {
+  margin-top: 32px;
+}
+
+/* --- Ilustracion decorativa del hero --- */
+.hero-art {
+  position: relative;
+  width: 340px;
+  height: 340px;
+  flex-shrink: 0;
+}
+
+/* Circulos que giran alrededor de la tarjeta de codigo */
+.orbit {
+  position: absolute;
+  border: 2px dashed var(--border);
+  border-radius: 50%;
+  inset: 0;
+  animation: girar 22s linear infinite;
+}
+
+.orbit-two {
+  inset: 40px;
+  border-color: var(--olive);
+  opacity: 0.4;
+  animation-duration: 16s;
+  animation-direction: reverse;
+}
+
+@keyframes girar {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Tarjeta con el codigo de ejemplo, centrada sobre las orbitas */
+.code-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 240px;
+  padding: 22px;
+  background: var(--ink);
+  color: #e8ffd0;
+  border-radius: 16px;
+  font: 13px 'Space Mono', monospace;
+  box-shadow: 0 20px 40px rgba(255, 3, 3, 0.18);
+}
+
+.code-card b {
+  color: var(--primary);
+}
+
+.code-card i {
+  color: #e0e4e7;
+  font-style: normal;
+}
+
+.code-card .line-number {
+  color: var(--muted);
+}
+
+.code-card .indent {
+  padding-left: 16px;
+}
+
+/* Etiqueta "modo aprendizaje" que flota arriba a la derecha */
+.hero-sticker {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: var(--primary);
+  border-radius: 12px;
+  font-size: 11px;
+  text-transform: uppercase;
+  animation: flotar 3s ease-in-out infinite;
+}
+
+/* La etiqueta sube y baja lentamente */
+@keyframes flotar {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+
+/* 6. SOBRE MI ---------------------------------------------------------- */
+.split-section {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  /* dos columnas: etiqueta + contenido */
+  gap: 40px;
+}
+
+.section-label {
+  padding-top: 6px;
+}
+
+.about-content h2 {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  margin: 0 0 20px;
+}
+
+.about-content p {
+  color: var(--muted);
+  max-width: 560px;
+}
+
+.about-meta {
+  display: flex;
+  gap: 40px;
+  margin-top: 32px;
+}
+
+.about-meta strong {
+  display: block;
+  font-size: 34px;
+  color: var(--olive);
+}
+
+.about-meta span {
+  font: 12px 'Space Mono', monospace;
+  color: var(--muted);
+}
+
+
+/* 7. HABILIDADES ------------------------------------------------------- */
+.skills-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 40px;
+  margin: 20px 0 40px;
+}
+
+.skills-header h2 {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  margin: 0;
+}
+
+.skills-header p {
+  color: var(--muted);
+  max-width: 320px;
+}
+
+/* Grid de 3 columnas que se adapta solo cuando no cabe */
+.skill-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.skill-card {
+  position: relative;
+  padding: 28px;
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  transition: transform var(--transicion), box-shadow var(--transicion);
+}
+
+/* La tarjeta se eleva y muestra sombra al pasar el mouse */
+.skill-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.08);
+}
+
+.skill-number {
+  position: absolute;
+  top: 20px;
+  right: 22px;
+}
+
+.skill-icon {
+  display: inline-flex;
+  font: 700 16px 'Space Mono', monospace;
+  color: var(--olive);
+}
+
+.skill-card h3 {
+  margin: 14px 0 8px;
+  font-size: 20px;
+}
+
+.skill-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+
+/* 8. PROYECTOS --------------------------------------------------------- */
+.projects-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 30px;
+  margin: 20px 0 34px;
+}
+
+.projects-header h2 {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  margin: 0;
+}
+
+/* Botones de filtro */
+.filters button {
+  border: 1px solid var(--border);
+  background: transparent;
+  border-radius: 999px;
+  padding: 8px 18px;
+  font: 600 14px 'DM Sans', sans-serif;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all var(--transicion);
+}
+
+.filters button:hover {
+  border-color: var(--ink);
+  color: var(--ink);
+}
+
+/* El filtro seleccionado se pinta de verde */
+.filters button.active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: var(--ink);
+}
+
+.project-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.project-card {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  padding: 26px;
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  cursor: pointer;
+  transition: transform var(--transicion), border-color var(--transicion);
+}
+
+.project-card:hover {
+  transform: translateX(8px);
+  /* se desliza a la derecha */
+  border-color: var(--olive);
+}
+
+.project-index {
+  font: 700 22px 'Space Mono', monospace;
+  color: var(--olive);
+}
+
+.project-info {
+  flex: 1;
+}
+
+.project-info h3 {
+  margin: 8px 0;
+  font-size: 22px;
+}
+
+.project-info p {
+  margin: 0 0 14px;
+  color: var(--muted);
+}
+
+.tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.tags span {
+  font: 12px 'Space Mono', monospace;
+  padding: 4px 10px;
+  background: var(--bg);
+  border-radius: 6px;
+  color: var(--muted);
+}
+
+.project-arrow {
+  font-size: 24px;
+  color: var(--olive);
+  transition: transform var(--transicion);
+}
+
+/* La flecha se agranda cuando pasas por la tarjeta */
+.project-card:hover .project-arrow {
+  transform: scale(1.3);
+}
+
+
+/* 9. MI PROCESO -------------------------------------------------------- */
+.journey {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.journey-mark {
+  font-size: 60px;
+  color: var(--olive);
+  line-height: 1;
+}
+
+.journey h2 {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  margin: 12px 0 16px;
+}
+
+.journey p {
+  color: var(--muted);
+  max-width: 520px;
+  margin-bottom: 20px;
+}
+
+
+/* 10. CONTACTO --------------------------------------------------------- */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  margin-top: 20px;
+}
+
+.contact h2 {
+  font-size: clamp(2.2rem, 6vw, 4rem);
+  margin: 0 0 18px;
+}
+
+.contact p {
+  color: var(--muted);
+  max-width: 380px;
+}
+
+.contact-email {
+  display: inline-block;
+  margin-top: 20px;
+  font: 15px 'Space Mono', monospace;
+  border-bottom: 2px solid var(--olive);
+  padding-bottom: 2px;
+}
+
+/* --- Formulario --- */
+#contactForm {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+#contactForm label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font: 600 14px 'DM Sans', sans-serif;
+}
+
+#contactForm input,
+#contactForm textarea {
+  padding: 13px 15px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--paper);
+  font: 15px 'DM Sans', sans-serif;
+  transition: border-color var(--transicion), box-shadow var(--transicion);
+}
+
+/* :focus = cuando el campo esta seleccionado. Resaltamos el borde */
+#contactForm input:focus,
+#contactForm textarea:focus {
+  outline: none;
+  border-color: var(--olive);
+  box-shadow: 0 0 0 4px rgba(138, 164, 47, 0.15);
+}
+
+/* Mensaje de error en rojo (lo activa el JavaScript) */
+.error-message {
+  color: #d14343;
+  font: 12px 'Space Mono', monospace;
+  min-height: 14px;
+}
+
+.form-note {
+  font-size: 14px;
+  color: var(--olive);
+}
+
+
+/* 11. PIE DE PAGINA ---------------------------------------------------- */
+footer {
+  border-top: 1px solid var(--border);
+  margin-top: 40px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+
+/* 12. RESPONSIVE Y ACCESIBILIDAD --------------------------------------- */
+
+/* Texto solo para lectores de pantalla (invisible en la pantalla) */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+/* En pantallas de 720px o menos (moviles y tablets) reorganizamos todo */
+@media (max-width: 720px) {
+
+  /* Mostramos el boton de menu y escondemos los enlaces */
+  .menu-button {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    z-index: 2;
+    top: 66px;
+    left: 16px;
+    right: 16px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+    padding: 18px;
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+  }
+
+  /* Cuando el JS agrega la clase is-open, el menu aparece */
+  .nav-links.is-open {
+    display: flex;
+  }
+
+  /* El hero pasa de dos columnas a una sola, apiladas */
+  .hero {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 50px 0 70px;
+    gap: 50px;
+  }
+
+  /* Estas secciones dejan de tener columnas y se apilan */
+  .split-section,
+  .journey,
+  .skills-header,
+  .projects-header,
+  .contact-grid {
+    grid-template-columns: 1fr;
+    display: grid;
+    gap: 28px;
+  }
+
+  .about-meta {
+    gap: 28px;
+  }
+
+  .project-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  /* En movil la tarjeta ya no se desliza a los lados */
+  .project-card:hover {
+    transform: none;
+  }
+
+  footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+}
+
+/* Respeta a quienes prefieren menos animaciones (accesibilidad) */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    scroll-behavior: auto;
+    transition: none !important;
+  }
+}
+
+
+  
