@@ -21,20 +21,13 @@
    Guardamos los colores una sola vez. Si quieres cambiar el color
    principal, solo cambias --primary aqui y se actualiza en toda la web. */
 :root {
-  --bg: #0a0a0a;
-  /* fondo general */
-  --ink: #615f5f;
- 
-  --muted: #e1ece7;
- 
-  --primary: #0d5a6d;
- 
-  --olive: #ebe8e5;
-  
-  --paper: #471e22;
-  /* fondo de tarjetas */
-  --border: #d5d9d1;
-  /* color de bordes */
+  --bg: #f5f5f0;        /* fondo general */
+  --ink: #17211e;       /* texto oscuro */
+  --muted: #68726d;     /* texto gris secundario */
+  --primary: #b9f23d;   /* verde lima de acento */
+  --olive: #8aa42f;     /* verde oliva */
+  --paper: #fbfbf8;     /* fondo de tarjetas */
+  --border: #d5d9d1;    /* color de bordes */
 
   /* Una transicion suave que reutilizamos en toda la pagina */
   --transicion: 0.25s ease;
@@ -67,9 +60,7 @@ a {
   transition: color var(--transicion);
 }
 
-h1,
-h2,
-h3 {
+h1, h2, h3 {
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.02em;
@@ -105,8 +96,7 @@ footer {
   align-items: center;
   gap: 10px;
   border: 0;
-  border-radius: 999px;
-  /* bordes totalmente redondeados (pastilla) */
+  border-radius: 999px;      /* bordes totalmente redondeados (pastilla) */
   padding: 14px 22px;
   font: 700 15px 'DM Sans', sans-serif;
   cursor: pointer;
@@ -116,8 +106,7 @@ footer {
 .button-primary {
   background: var(--primary);
   color: var(--ink);
-  box-shadow: 0 6px 0 #dce9bf;
-  /* sombra plana que simula grosor */
+  box-shadow: 0 6px 0 #dce9bf;   /* sombra plana que simula grosor */
 }
 
 /* :hover = cuando el mouse esta encima. El boton "sube" 3px */
@@ -129,7 +118,7 @@ footer {
 /* :active = en el momento del clic. El boton "baja" y parece presionado */
 .button-primary:active {
   transform: translateY(2px);
-  box-shadow: 0 3px 0 #3d3d3b;
+  box-shadow: 0 3px 0 #dce9bf;
 }
 
 /* Enlace de texto con una linea inferior que aparece al pasar el mouse */
@@ -159,15 +148,8 @@ footer {
   letter-spacing: -0.04em;
 }
 
-.brand span:first-child {
-  color: var(--olive);
-  font-size: 22px;
-}
-
-.brand span:last-child {
-  color: var(--muted);
-  font-weight: 400;
-}
+.brand span:first-child { color: var(--olive); font-size: 22px; }
+.brand span:last-child  { color: var(--muted); font-weight: 400; }
 
 .nav-links,
 .hero-actions,
@@ -212,9 +194,7 @@ footer {
   padding: 70px 0 90px;
 }
 
-.hero-copy {
-  max-width: 600px;
-}
+.hero-copy { max-width: 600px; }
 
 .eyebrow,
 .section-label,
@@ -236,29 +216,19 @@ footer {
 .status-dot {
   width: 8px;
   height: 8px;
-  background: #a4a79f;
+  background: #8db62c;
   border-radius: 50%;
   animation: latido 1.6s ease-in-out infinite;
 }
 
 /* @keyframes define una animacion: aqui el punto crece y se encoge */
 @keyframes latido {
-
-  0%,
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-
-  50% {
-    transform: scale(1.4);
-    opacity: 0.6;
-  }
+  0%, 100% { transform: scale(1);   opacity: 1;   }
+  50%      { transform: scale(1.4); opacity: 0.6; }
 }
 
 .hero h1 {
-  font-size: clamp(3.5rem, 9vw, 7rem);
-  /* tamano fluido segun la pantalla */
+  font-size: clamp(3.5rem, 9vw, 7rem);   /* tamano fluido segun la pantalla */
   margin: 20px 0;
   font-weight: 700;
 }
@@ -299,9 +269,7 @@ footer {
 }
 
 @keyframes girar {
-  to {
-    transform: rotate(360deg);
-  }
+  to { transform: rotate(360deg); }
 }
 
 /* Tarjeta con el codigo de ejemplo, centrada sobre las orbitas */
@@ -319,25 +287,13 @@ footer {
   color: #e8ffd0;
   border-radius: 16px;
   font: 13px 'Space Mono', monospace;
-  box-shadow: 0 20px 40px rgba(255, 3, 3, 0.18);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.18);
 }
 
-.code-card b {
-  color: var(--primary);
-}
-
-.code-card i {
-  color: #e0e4e7;
-  font-style: normal;
-}
-
-.code-card .line-number {
-  color: var(--muted);
-}
-
-.code-card .indent {
-  padding-left: 16px;
-}
+.code-card b { color: var(--primary); }
+.code-card i { color: #9ad0ff; font-style: normal; }
+.code-card .line-number { color: var(--muted); }
+.code-card .indent { padding-left: 16px; }
 
 /* Etiqueta "modo aprendizaje" que flota arriba a la derecha */
 .hero-sticker {
@@ -357,39 +313,22 @@ footer {
 
 /* La etiqueta sube y baja lentamente */
 @keyframes flotar {
-
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(-8px);
-  }
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-8px); }
 }
 
 
 /* 6. SOBRE MI ---------------------------------------------------------- */
 .split-section {
   display: grid;
-  grid-template-columns: 160px 1fr;
-  /* dos columnas: etiqueta + contenido */
+  grid-template-columns: 160px 1fr;   /* dos columnas: etiqueta + contenido */
   gap: 40px;
 }
 
-.section-label {
-  padding-top: 6px;
-}
+.section-label { padding-top: 6px; }
 
-.about-content h2 {
-  font-size: clamp(2rem, 5vw, 3.2rem);
-  margin: 0 0 20px;
-}
-
-.about-content p {
-  color: var(--muted);
-  max-width: 560px;
-}
+.about-content h2 { font-size: clamp(2rem, 5vw, 3.2rem); margin: 0 0 20px; }
+.about-content p  { color: var(--muted); max-width: 560px; }
 
 .about-meta {
   display: flex;
@@ -418,15 +357,8 @@ footer {
   margin: 20px 0 40px;
 }
 
-.skills-header h2 {
-  font-size: clamp(2rem, 5vw, 3.2rem);
-  margin: 0;
-}
-
-.skills-header p {
-  color: var(--muted);
-  max-width: 320px;
-}
+.skills-header h2 { font-size: clamp(2rem, 5vw, 3.2rem); margin: 0; }
+.skills-header p  { color: var(--muted); max-width: 320px; }
 
 /* Grid de 3 columnas que se adapta solo cuando no cabe */
 .skill-grid {
@@ -447,7 +379,7 @@ footer {
 /* La tarjeta se eleva y muestra sombra al pasar el mouse */
 .skill-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 16px 30px rgba(0,0,0,0.08);
 }
 
 .skill-number {
@@ -462,16 +394,8 @@ footer {
   color: var(--olive);
 }
 
-.skill-card h3 {
-  margin: 14px 0 8px;
-  font-size: 20px;
-}
-
-.skill-card p {
-  margin: 0;
-  color: var(--muted);
-  font-size: 15px;
-}
+.skill-card h3 { margin: 14px 0 8px; font-size: 20px; }
+.skill-card p  { margin: 0; color: var(--muted); font-size: 15px; }
 
 
 /* 8. PROYECTOS --------------------------------------------------------- */
@@ -483,10 +407,7 @@ footer {
   margin: 20px 0 34px;
 }
 
-.projects-header h2 {
-  font-size: clamp(2rem, 5vw, 3.2rem);
-  margin: 0;
-}
+.projects-header h2 { font-size: clamp(2rem, 5vw, 3.2rem); margin: 0; }
 
 /* Botones de filtro */
 .filters button {
@@ -500,10 +421,7 @@ footer {
   transition: all var(--transicion);
 }
 
-.filters button:hover {
-  border-color: var(--ink);
-  color: var(--ink);
-}
+.filters button:hover { border-color: var(--ink); color: var(--ink); }
 
 /* El filtro seleccionado se pinta de verde */
 .filters button.active {
@@ -531,8 +449,7 @@ footer {
 }
 
 .project-card:hover {
-  transform: translateX(8px);
-  /* se desliza a la derecha */
+  transform: translateX(8px);        /* se desliza a la derecha */
   border-color: var(--olive);
 }
 
@@ -541,19 +458,9 @@ footer {
   color: var(--olive);
 }
 
-.project-info {
-  flex: 1;
-}
-
-.project-info h3 {
-  margin: 8px 0;
-  font-size: 22px;
-}
-
-.project-info p {
-  margin: 0 0 14px;
-  color: var(--muted);
-}
+.project-info { flex: 1; }
+.project-info h3 { margin: 8px 0; font-size: 22px; }
+.project-info p  { margin: 0 0 14px; color: var(--muted); }
 
 .tags {
   display: flex;
@@ -595,16 +502,8 @@ footer {
   line-height: 1;
 }
 
-.journey h2 {
-  font-size: clamp(2rem, 5vw, 3.2rem);
-  margin: 12px 0 16px;
-}
-
-.journey p {
-  color: var(--muted);
-  max-width: 520px;
-  margin-bottom: 20px;
-}
+.journey h2 { font-size: clamp(2rem, 5vw, 3.2rem); margin: 12px 0 16px; }
+.journey p  { color: var(--muted); max-width: 520px; margin-bottom: 20px; }
 
 
 /* 10. CONTACTO --------------------------------------------------------- */
@@ -615,15 +514,8 @@ footer {
   margin-top: 20px;
 }
 
-.contact h2 {
-  font-size: clamp(2.2rem, 6vw, 4rem);
-  margin: 0 0 18px;
-}
-
-.contact p {
-  color: var(--muted);
-  max-width: 380px;
-}
+.contact h2 { font-size: clamp(2.2rem, 6vw, 4rem); margin: 0 0 18px; }
+.contact p  { color: var(--muted); max-width: 380px; }
 
 .contact-email {
   display: inline-block;
@@ -702,9 +594,7 @@ footer {
 @media (max-width: 720px) {
 
   /* Mostramos el boton de menu y escondemos los enlaces */
-  .menu-button {
-    display: block;
-  }
+  .menu-button { display: block; }
 
   .nav-links {
     display: none;
@@ -723,9 +613,7 @@ footer {
   }
 
   /* Cuando el JS agrega la clase is-open, el menu aparece */
-  .nav-links.is-open {
-    display: flex;
-  }
+  .nav-links.is-open { display: flex; }
 
   /* El hero pasa de dos columnas a una sola, apiladas */
   .hero {
@@ -746,9 +634,7 @@ footer {
     gap: 28px;
   }
 
-  .about-meta {
-    gap: 28px;
-  }
+  .about-meta { gap: 28px; }
 
   .project-card {
     flex-direction: column;
@@ -757,9 +643,7 @@ footer {
   }
 
   /* En movil la tarjeta ya no se desliza a los lados */
-  .project-card:hover {
-    transform: none;
-  }
+  .project-card:hover { transform: none; }
 
   footer {
     flex-direction: column;
@@ -776,6 +660,201 @@ footer {
     transition: none !important;
   }
 }
+
+/* ============================================================
+   13. FORMULARIO DE INSCRIPCIÓN (sección de práctica)
+   ============================================================ */
+
+.signup-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.signup-intro h2 {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  line-height: 1.1;
+  margin: 12px 0 16px;
+}
+
+.signup-intro em {
+  color: var(--primary);
+  font-style: normal;
+}
+
+.signup-points {
+  list-style: none;
+  padding: 0;
+  margin: 24px 0 0;
+  display: grid;
+  gap: 12px;
+}
+
+.signup-points li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--muted);
+}
+
+.signup-points span {
+  color: var(--primary);
+}
+
+/* Tarjeta que envuelve el formulario */
+.signup-form {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 28px;
+  display: grid;
+  gap: 18px;
+}
+
+/* Cada campo: etiqueta arriba, control abajo */
+.field {
+  display: grid;
+  gap: 6px;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.field label,
+.field legend {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* Dos campos en la misma fila */
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+/* Estilo común de todos los controles */
+.signup-form input,
+.signup-form select,
+.signup-form textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--bg);
+  color: var(--ink);
+  font: inherit;
+  transition: var(--transicion);
+}
+
+/* Al enfocar: halo verde (interactividad) */
+.signup-form input:focus,
+.signup-form select:focus,
+.signup-form textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(185, 242, 61, 0.25);
+}
+
+/* Estado de error */
+.signup-form input.error,
+.signup-form select.error {
+  border-color: #ff6b6b;
+  box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.2);
+}
+
+.error-message {
+  color: #ff6b6b;
+  font-size: 0.8rem;
+  min-height: 1em;
+}
+
+.hint {
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+/* Contraseña con botón de ver/ocultar */
+.password-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-wrap input {
+  padding-right: 68px;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 8px;
+  border: none;
+  background: var(--line);
+  color: var(--ink);
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: var(--transicion);
+}
+
+.toggle-password:hover {
+  background: var(--primary);
+  color: #0b0b0b;
+}
+
+/* Radios y checkboxes en línea */
+.options-inline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.option input {
+  width: auto;
+  accent-color: var(--primary);
+}
+
+.terms {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+/* Botones de acción */
+.form-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.button-ghost {
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--ink);
+}
+
+.button-ghost:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+/* Responsive: una sola columna en móvil */
+@media (max-width: 720px) {
+  .signup-grid,
+  .field-row {
+    grid-template-columns: 1fr;
+  }
+}
+
 
 
   
